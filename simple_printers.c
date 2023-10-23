@@ -2,7 +2,7 @@
 
 /**
  * print_from_to - prints a range lf char addresses
- * @star: starting address
+ * @start: starting address
  * @stop: stopping address
  * @except: except address
  *
@@ -12,7 +12,7 @@
 int print_from_to(char *start, char *stop, char *except)
 {
 	int sum = 0;
-	
+
 	while (start <= stop)
 	{
 		if (start != except)
@@ -38,7 +38,7 @@ int print_rev(va_list ap, params_t *params)
 	if (str)
 	{
 		for (len = 0; *str; str++)
-			len++:
+			len++;
 		str--;
 		for (; len > 0; len--, str--)
 			sum += _putchar(*str);

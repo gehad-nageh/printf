@@ -90,7 +90,7 @@ int get_flag(char *s, params_t *params)
 }
 
 /**
- * get_modidier - finds the modifier func
+ * get_modifier - finds the modifier func
  * @s: the format string
  * @params: the parameters struct
  *

@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * get_percision - gets the percision from the format string
+ * get_precision - gets the precision from the format string
  * @p: the format string
  * @params: the parameters struct
  * @ap: the argument point
+ * Return: new pointer
  */
 
 char *get_precision(char *p, params_t *params, va_list ap)
@@ -14,7 +15,7 @@ char *get_precision(char *p, params_t *params, va_list ap)
 	if (*p != '.')
 		return (p);
 	p++;
-	
+
 	if (*p == '*')
 	{
 		d = va_arg(ap, int);
