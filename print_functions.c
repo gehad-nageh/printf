@@ -28,7 +28,7 @@ int print_char(va_list ap, params_t *params)
  */
 int print_int(va_list ap, params_t *params)
 {
-	long 1;
+	long l;
 
 	if (params->l_modifier)
 		l = va_arg(ap, long);
@@ -36,7 +36,7 @@ int print_int(va_list ap, params_t *params)
 		l = (short int)va_arg(ap, int);
 	else
 		l = (int)va_arg(ap, int);
-	return (print_number(convert(1, 10, 0, params), params));
+	return (print_number(convert(l, 10, 0, params), params));
 }
 
 /**
@@ -56,7 +56,7 @@ int print_string(va_list ap, params_t *params)
 			str = NULL_STRING;
 
 	j = pad = _strlen(str);
-	if (params->percision < pad)
+	if (params->precision < pad)
 		j = pad = params->precision;
 
 	if (params->minus_flag)
@@ -113,7 +113,7 @@ int print_S(va_list ap, params_t *params)
 		if ((*str > 0 && *str < 32) || *str >= 127)
 		{
 			sum += _putchar('\\');
-			sum += _putchaar('x');
+			sum += _putchar('x');
 			hex = convert(*str, 16, 0, params);
 			if (!hex[1])
 				sum += _putchar('0');

@@ -14,8 +14,8 @@
 
 #define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
-#define CONVERT_LOWERCASE
-#define CONVERT_UNSIGNED
+#define CONVERT_LOWERCASE  1
+#define CONVERT_UNSIGNED   2
 
 /**
  * struct parameters - parameters struct
@@ -89,7 +89,7 @@ int print_HEX(va_list ap, params_t *params);
 int print_binary(va_list ap, params_t *params);
 int print_octal(va_list ap, params_t *params);
 
-int print_from_to(char *star, char *stop, char *except);
+int print_from_to(char *start, char *stop, char *except);
 int print_rev(va_list ap, params_t *params);
 int print_rot13(va_list ap, params_t *params);
 

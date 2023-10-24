@@ -8,7 +8,7 @@
 
 int (*get_specifier(char *s))(va_list ap, params_t *params)
 {
-	specifier_t specifier[] = {
+	specifier_t specifiers[] = {
 		{"c", print_char},
 		{"d", print_int},
 		{"i", print_int},
@@ -19,7 +19,7 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{"u", print_unsigned},
 		{"x", print_hex},
 		{"X", print_HEX},
-		{"P", print_addess},
+		{"P", print_address},
 		{"S", print_S},
 		{"r", print_rev},
 		{"R", print_rot13},
@@ -70,19 +70,19 @@ int get_flag(char *s, params_t *params)
 
 	switch (*s)
 	{
-		case '+';
+		case '+':
 			i = params->plus_flag = 1;
 			break;
-		case ' ';
+		case ' ':
 			i = params->space_flag = 1;
 			break;
-		case '#'
+		case '#':
 			i = params->hashtag_flag = 1;
 			break;
-		case '-'
+		case '-':
 			i = params->minus_flag = 1;
 			break;
-		case '0'
+		case '0':
 			i = params->zero_flag = 1;
 			break;
 	}
@@ -103,10 +103,10 @@ int get_modifier(char *s, params_t *params)
 
 	switch (*s)
 	{
-		case 'h';
+		case 'h':
 			i = params->h_modifier = 1;
 			break;
-		case 'l';
+		case 'l':
 			i = params->l_modifier = 1;
 			break;
 	}

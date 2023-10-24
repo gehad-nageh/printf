@@ -18,14 +18,14 @@ char *convert(long int num, int base, int flags, params_t *params)
 	unsigned long n = num;
 	(void)params;
 
-	if (!(flag & CONVERT_UNSIGNED) && num < 0)
+	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
 		n = -num;
 		sign = '-';
 	}
-	array = flags & CONVERT_UNSIGNED ? "0123456789abcdef" : "0123456789ABCDEF";
+	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
-	*ptr = '\0'
+	*ptr = '\0';
 
 	do {
 		*--ptr = array[n % base];
@@ -45,7 +45,7 @@ char *convert(long int num, int base, int flags, params_t *params)
  */
 int print_unsigned(va_list ap, params_t *params)
 {
-	unsigned long 1;
+	unsigned long l;
 
 	if (params->l_modifier)
 		l = (unsigned long)va_arg(ap, unsigned long);
@@ -54,7 +54,7 @@ int print_unsigned(va_list ap, params_t *params)
 	else
 		l = (unsigned int)va_arg(ap, unsigned int);
 	params->unsign = 1;
-	return (print_number(convert(1, 10, CONVERT_UNSIGNED, params), params));
+	return (print_number(convert(l, 10, CONVERT_UNSIGNED, params), params));
 }
 
 /**
